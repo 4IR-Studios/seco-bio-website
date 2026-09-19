@@ -54,7 +54,7 @@ export default function Site() {
   return (
     <div className="min-h-screen bg-white">
       <Head>
-        <title>Seco Bio — Keeping the living alive</title>
+        <title>Seco Bio — Protecting what matters</title>
         <meta
           name="description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
@@ -64,7 +64,7 @@ export default function Site() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Seco Bio" />
         <meta property="og:url" content="https://seco.bio" />
-        <meta property="og:title" content="Seco Bio — Keeping the living alive" />
+        <meta property="og:title" content="Seco Bio — Protecting what matters" />
         <meta
           property="og:description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
@@ -74,7 +74,7 @@ export default function Site() {
         <meta property="og:image:height" content="1080" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Seco Bio — Keeping the living alive" />
+        <meta name="twitter:title" content="Seco Bio — Protecting what matters" />
         <meta
           name="twitter:description"
           content="Seco Bio uses AI and robotics to keep living organisms alive, making probiotics deliver what the label promises."
