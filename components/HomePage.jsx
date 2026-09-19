@@ -55,7 +55,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
                 Protecting what matters.
               </h1>
               <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.95)', lineHeight: 1.65, marginTop: '1.5rem', maxWidth: 640, marginLeft: 'auto', marginRight: 'auto', textShadow: '0 1px 12px rgba(0,0,0,0.35)' }}>
-                Probiotics die before they arrive. Seco Bio's proprietary AI and robotics-driven formulation platform keeps them alive from the factory to the moment they're used — so what's on the label is what's inside.
+                Probiotics die before they arrive. Seco Bio's proprietary formulation keeps them alive from the factory to the moment they're used — so what's on the label is what's inside.
               </p>
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2rem' }}>
                 <a
