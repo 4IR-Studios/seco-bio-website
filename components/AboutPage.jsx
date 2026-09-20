@@ -176,7 +176,7 @@ export default function AboutPage({ onContactClick }) {
               category="Founder"
               accent={BLUE}
               photo="/images/team/joe.jpg"
-              bio="Built and commercialized MIT technology; launched medicines in neurology and oncology."
+              bio="Joe cofounded Seco Bio and has served as CEO since inception. He led the development and commercialization of Ogsiveo at SpringWorks Therapeutics, and before that built Biogen's neuromuscular franchise, including the launch of Qalsody and the global expansion of Spinraza. He holds a BS in Biology from the United States Air Force Academy, an MS in Bioengineering from Northeastern University, and an MBA from the Kellogg School of Management at Northwestern University."
             />
             <Person
               name="Miguel Jimenez, PhD"
@@ -185,7 +185,7 @@ export default function AboutPage({ onContactClick }) {
               category="Founder"
               accent={BLUE}
               photo="/images/team/miguel.jpg"
-              bio="Led the original research and its publication in Nature Materials. Professor at Boston University."
+              bio="Miguel led the original research behind Seco's formulation and its publication in Nature Materials. He is an Assistant Professor at Boston University, where his lab builds devices that use engineered microorganisms to sense and act on their environment. He holds an AB from Harvard University and a PhD in Chemistry from Columbia University."
             />
             <Person
               name="Giovanni Traverso, MD, PhD"
@@ -194,7 +194,7 @@ export default function AboutPage({ onContactClick }) {
               category="Founder"
               accent={BLUE}
               photo="/images/team/giovanni.jpg"
-              bio="MIT professor, practising physician, and founder of four biotech companies."
+              bio="Giovanni is a Professor of Mechanical Engineering at MIT and a gastroenterologist at Brigham and Women's Hospital, Harvard Medical School. His earlier work on molecular tests for colon cancer was licensed to Exact Sciences and became Cologuard, the FDA-approved screening test. He holds a B.A. and an M.B., B.Chir. from Trinity College, University of Cambridge, and a Ph.D. from Johns Hopkins University, and completed his residency and fellowship training at Harvard Medical School."
             />
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function AboutPage({ onContactClick }) {
               category="Advisor"
               accent={GREEN}
               photo="/images/team/hendrix.jpg"
-              bio="Built the company's M&amp;A function from 2012 and led its venture investment strategy. Board seats at Prometheus Biosciences, Evelo, Enterome, and Kaleido."
+              bio="Martin built Nestlé Health Science's M&amp;A function in 2012 and has grown its portfolio ever since through acquisitions, licensing deals, and venture investments. He has represented the company on the boards of Enterome, Evelo, Kaleido, Kintai, and Microbiome Diagnostic Partners. He came to Nestlé after 14 years at Bayer and holds a PhD from The Scripps Research Institute."
             />
             <Person
               name="Dan Stroud"
@@ -234,7 +234,7 @@ export default function AboutPage({ onContactClick }) {
               category="Advisor"
               accent={GREEN}
               photo="/images/team/stroud.jpg"
-              bio="Former CFO of Nestlé USA. Thirty-four years at Nestlé, leading financial strategy for its major acquisitions. Senior Advisor, New Mountain Capital."
+              bio="Dan spent 34 years at Nestlé, serving as CFO of Nestlé USA and President of Nestlé Business Services. As a founding member and CFO of Nestlé Health Science, he led the planning and execution of its major acquisitions, including Atrium Innovations. He is now a Senior Advisor to New Mountain Capital and holds a BS in Economics and Finance from Bemidji State University."
             />
             <Person
               name="Peter Luther, MBA"
@@ -243,7 +243,7 @@ export default function AboutPage({ onContactClick }) {
               category="Advisor"
               accent={GREEN}
               photo="/images/team/luther.jpg"
-              bio="Led the consumer health group behind Garden of Life and Pure Encapsulations."
+              bio="Peter led Atrium Innovations, the company behind Garden of Life and Pure Encapsulations, through its $2.3 billion acquisition by Nestlé. He spent 25 years at Johnson &amp; Johnson, serving as President of its Consumer Healthcare, Beauty Care, OTC, and LifeScan divisions. He is Executive Chairman of Vytalogy Wellness and holds an MBA from the Kellogg School of Management at Northwestern University."
             />
           </div>
         </div>
