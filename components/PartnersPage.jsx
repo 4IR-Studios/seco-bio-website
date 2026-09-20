@@ -88,8 +88,9 @@ export default function PartnersPage({ onContactClick }) {
         </div>
       </div>
 
-      {/* Redesigned: caption promoted to centerpiece, X/check list split into
-          plain-text cards, blue swapped for green, dead-space band closed. */}
+      {/* The bordered band carries the positioning statement plus the two entry
+          points a program can start from; the card pair below it splits what the
+          partner supplies from what Seco hands back. */}
       <section className="pt-4 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
           <Eyebrow color={GREEN_DEEP} className="mb-3">For brands &amp; manufacturers</Eyebrow>
@@ -97,47 +98,47 @@ export default function PartnersPage({ onContactClick }) {
             className="font-bold mb-10"
             style={{ color: SLATE, fontSize: 'clamp(1.7rem, 3vw, 2.5rem)', lineHeight: 1.12, letterSpacing: '-0.025em' }}
           >
-            You already pay for die-off. <span style={{ color: GREEN, fontStyle: 'italic' }}>You just pay for it upstream.</span>
+            Seco customizes dry-form probiotics <span style={{ color: GREEN, fontStyle: 'italic' }}>for higher viability and less overage.</span>
           </h2>
-
-          <p style={{ color: MUTED, fontSize: '15px', marginBottom: 24 }}>
-            Overfilling is a tax. Every unit absorbs the cost of what you can't control.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-5 mb-12">
-            {[
-              'You buy more organism than you sell',
-              "You carry shelf life you can't fully predict",
-              "You make a claim you can't verify"
-            ].map((t) => (
-              <div key={t} className="rounded-xl p-6" style={{ backgroundColor: '#F7F8FA', border: '1px solid #E4E8F2' }}>
-                <p style={{ color: SLATE, fontSize: '15px', lineHeight: 1.6, fontWeight: 600 }}>{t}</p>
-              </div>
-            ))}
-          </div>
 
           <div style={{ borderTop: '1px solid #E4E8F2', borderBottom: '1px solid #E4E8F2', padding: '2.5rem 0', textAlign: 'center', marginBottom: 40 }}>
             <p
-              className="font-bold mx-auto mb-4"
+              className="font-bold mx-auto mb-10"
               style={{ color: SLATE, fontSize: 'clamp(1.3rem, 2.4vw, 1.8rem)', lineHeight: 1.3, maxWidth: '32ch' }}
             >
-              A program is scoped to one strain and one format. We formulate it, prove it at your scale, and transfer it to your line.
+              Seco develops customized formulations and transfers them to production lines.
             </p>
-            <p style={{ color: MUTED, fontSize: '15px' }}>
-              Without changing your strain, your ingredients, or your line.
-            </p>
+
+            <Eyebrow className="mb-6">Where a program starts</Eyebrow>
+            <div className="grid md:grid-cols-2 gap-6 text-left">
+              {[
+                {
+                  label: 'Products already in production',
+                  body: 'Seco customizes formulations around the strains already in the products, on the production lines already running them.'
+                },
+                {
+                  label: 'Strains not yet in market',
+                  body: 'Seco customizes novel formulations so new probiotics stay protected from the production line through global distribution.'
+                }
+              ].map(({ label, body }) => (
+                <div key={label} className="rounded-xl p-6" style={{ backgroundColor: '#F7F8FA', border: '1px solid #E4E8F2' }}>
+                  <Eyebrow color={GREEN_DEEP} className="mb-3">{label}</Eyebrow>
+                  <p style={{ color: MUTED, fontSize: '15px', lineHeight: 1.7 }}>{body}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-2xl p-10" style={{ border: '1px solid #E4E8F2' }}>
-              <Eyebrow className="mb-6">What we need from you</Eyebrow>
+              <Eyebrow className="mb-6">What a program needs</Eyebrow>
               <ul className="space-y-4">
                 {[
-                  'The organism — strain name and source',
-                  'The format — tablets, capsules, powder',
-                  'The claim and shelf life you’re targeting',
-                  'Your markets and regulatory requirements',
-                  'Volume and manufacturing constraints'
+                  'Strain identity and supplier',
+                  'Dose form — tablet, capsule, sachet, stick pack',
+                  'Target label claim and shelf life',
+                  'Target markets',
+                  'Annual volume and production constraints'
                 ].map((t) => (
                   <li key={t} className="flex gap-3" style={{ color: MUTED, fontSize: '15px', lineHeight: 1.6 }}>
                     <span style={{ color: MUTED, flexShrink: 0 }}>›</span>
@@ -148,14 +149,13 @@ export default function PartnersPage({ onContactClick }) {
             </div>
 
             <div className="rounded-2xl p-10" style={{ backgroundColor: '#E1F4EE' }}>
-              <Eyebrow color={GREEN_DEEP} className="mb-6">What you get back</Eyebrow>
+              <Eyebrow color={GREEN_DEEP} className="mb-6">Program deliverables</Eyebrow>
               <ul className="space-y-4">
                 {[
-                  'A protective formulation built for your strain',
-                  'A transfer package for your line',
-                  'Stability data under your storage conditions',
-                  'A license to sell it in your markets',
-                  'Documentation for regulatory filings'
+                  'A protective formulation',
+                  'A tech transfer package for the production line',
+                  'Stability data under defined storage and distribution conditions',
+                  "License to Seco's formulation IP for commercial use in the defined markets"
                 ].map((t) => (
                   <li key={t} className="flex gap-3" style={{ color: SLATE, fontSize: '16px', lineHeight: 1.6 }}>
                     <Check size={17} style={{ color: GREEN_DEEP, flexShrink: 0, marginTop: 3 }} />
