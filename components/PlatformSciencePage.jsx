@@ -102,8 +102,8 @@ export default function PlatformSciencePage({ onNavigate }) {
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ width: 60, height: 60, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, flexShrink: 0 }}>✓</div>
               <div>
-                <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={6.5} decimals={1} suffix=" months" /></div>
-                <div style={{ fontSize: '14px', color: MUTED }}>sustained viability at body temperature. Demonstrated under sustained high-temperature conditions (37°C).</div>
+                <div style={{ fontSize: '18px', fontWeight: 700, color: SLATE, marginBottom: '0.25rem' }}><CountUp end={6} suffix=" months" /></div>
+                <div style={{ fontSize: '14px', color: MUTED }}>in an accelerated shelf stability test at elevated temperatures indicating stability beyond 1 year at room temperature without overages</div>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '1rem' }}>

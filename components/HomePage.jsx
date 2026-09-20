@@ -115,7 +115,7 @@ export default function HomePage({ onContactClick, onNavigate }) {
           <div className="grid sm:grid-cols-3 gap-6" style={{ marginBottom: '2rem' }}>
             {[
               { value: '10,000×', caption: 'more surviving cells than an uncoated commercial strain' },
-              { value: '6.5 months', caption: 'sustained viability at body temperature' },
+              { value: '6 months', caption: 'in an accelerated shelf stability test at elevated temperatures indicating stability beyond 1 year at room temperature without overages' },
               { value: '2,080', caption: 'formulations tested to find what works' }
             ].map(({ value, caption }) => (
               <div key={caption}>
