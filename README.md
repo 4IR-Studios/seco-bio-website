@@ -1,6 +1,6 @@
 # Seco Bio — Website
 
-Next.js site for Seco Bio. Deploys to Vercel.
+Next.js site for Seco Bio. Deploys to Netlify from `main`.
 
 ## Structure
 
@@ -41,11 +41,16 @@ npm run dev        # http://localhost:3000
 
 ## Deploy
 
-Push to GitHub. Import the repo at vercel.com. Framework auto-detects as Next.js — accept the defaults and deploy.
+Push to `main`. Netlify builds and deploys automatically (see `netlify.toml`).
+
+Contact form submissions are handled by Netlify Forms. The modal is rendered by
+React, which Netlify's build-time scanner never sees, so `public/__forms.html`
+registers the form instead and the modal POSTs to that same path. Where
+submissions get emailed is a dashboard setting, not a repo setting:
+Site settings → Forms → Form notifications.
 
 ## Known placeholders
 
 - Timeline durations on Platform page read `[CONFIRM TIMELINE]` — awaiting numbers from Joe
-- Contact form shows a success state but does not yet send email (needs SendGrid or similar)
 - Nature Materials paper links point to `#`
 - Team photos are grey circles until real files are added

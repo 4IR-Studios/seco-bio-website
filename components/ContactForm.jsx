@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const BLUE = '#3B60E4';
 const BLUE_DEEP = '#2F4FC9';
@@ -27,7 +27,12 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
     e.preventDefault();
     setState('sending');
     try {
-      const res = await fetch('/', {
+      // Post to the static stub, not '/'. On a Next.js site the '/' route is
+      // served by the framework, so Netlify's form handler never sees the POST
+      // and the submission is silently dropped. __forms.html is plain static
+      // HTML, so it reaches the form handler and 404s if the form is
+      // unregistered — which makes res.ok a real success signal.
+      const res = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'seco-contact', ...form })
@@ -174,21 +179,6 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
                 {state === 'sending' ? 'Sending…' : 'Send'}
               </button>
             </form>
-
-            {/* Direct line, for people who won't fill in a form */}
-            <div className="mt-8 pt-7" style={{ borderTop: '1px solid #E4E8F2' }}>
-              <p className="mb-4" style={{ color: MUTED, fontSize: 13 }}>
-                Prefer email?
-              </p>
-              <a
-                href="mailto:info@seco.bio"
-                className="inline-flex items-center gap-2.5"
-                style={{ color: BLUE, fontSize: 14 }}
-              >
-                <Mail size={15} strokeWidth={1.8} />
-                info@seco.bio
-              </a>
-            </div>
           </>
         )}
       </div>
