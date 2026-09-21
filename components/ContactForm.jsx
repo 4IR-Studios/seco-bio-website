@@ -7,11 +7,12 @@ const SLATE = '#3D4654';
 const MUTED = '#6B7280';
 const GREEN = '#1E8E5A';
 
-// Netlify needs the payload url-encoded, not JSON.
-const encode = (data) =>
-  Object.keys(data)
-    .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-    .join('&');
+// Web3Forms delivers submissions straight to info@seco.bio. The key is public
+// by design — it ships in the client bundle, and it only grants the right to
+// send to the address it was issued for. Set it in Netlify under
+// Site configuration -> Environment variables. Without it the form fails into
+// its error state, which points people at info@seco.bio directly.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
 export default function ContactForm({ onClose, initialType, initialMessage }) {
   const [form, setForm] = useState({
@@ -25,20 +26,38 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
 
   const submit = async (e) => {
     e.preventDefault();
+
+    if (!WEB3FORMS_KEY) {
+      console.error('NEXT_PUBLIC_WEB3FORMS_KEY is not set — the contact form cannot send.');
+      setState('error');
+      return;
+    }
+
     setState('sending');
     try {
-      // Post to the static stub, not '/'. On a Next.js site the '/' route is
-      // served by the framework, so Netlify's form handler never sees the POST
-      // and the submission is silently dropped. __forms.html is plain static
-      // HTML, so it reaches the form handler and 404s if the form is
-      // unregistered — which makes res.ok a real success signal.
-      const res = await fetch('/__forms.html', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'seco-contact', ...form })
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Seco website — ${form.type}`,
+          from_name: 'Seco Bio website',
+          // So replying in the inbox goes back to the sender, not to us.
+          replyto: form.email,
+          type: form.type,
+          email: form.email,
+          message: form.message,
+          botcheck: form.botcheck || ''
+        })
       });
-      setState(res.ok ? 'done' : 'error');
-    } catch {
+      // A 200 alone isn't success here — the API reports failures in the body.
+      const data = await res.json().catch(() => ({}));
+      if (!data.success) {
+        console.error('Contact form rejected:', res.status, data);
+      }
+      setState(data.success ? 'done' : 'error');
+    } catch (err) {
+      console.error('Contact form failed to send:', err);
       setState('error');
     }
   };
@@ -101,20 +120,16 @@ export default function ContactForm({ onClose, initialType, initialMessage }) {
               Let's talk.
             </h2>
 
-            <form
-              name="seco-contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={submit}
-              className="space-y-5"
-            >
-              <input type="hidden" name="form-name" value="seco-contact" />
-              <p className="hidden">
-                <label>
-                  Leave blank: <input name="bot-field" onChange={change} />
-                </label>
-              </p>
+            <form onSubmit={submit} className="space-y-5">
+              {/* Honeypot: hidden from people, irresistible to bots. */}
+              <input
+                type="text"
+                name="botcheck"
+                onChange={change}
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: 'none' }}
+              />
 
               <div>
                 <label className="block font-semibold mb-2" style={{ color: SLATE, fontSize: 13 }}>

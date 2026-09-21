@@ -43,11 +43,20 @@ npm run dev        # http://localhost:3000
 
 Push to `main`. Netlify builds and deploys automatically (see `netlify.toml`).
 
-Contact form submissions are handled by Netlify Forms. The modal is rendered by
-React, which Netlify's build-time scanner never sees, so `public/__forms.html`
-registers the form instead and the modal POSTs to that same path. Where
-submissions get emailed is a dashboard setting, not a repo setting:
-Site settings → Forms → Form notifications.
+### Contact form
+
+The modal posts to [Web3Forms](https://web3forms.com), which emails submissions
+to `info@seco.bio`. This is deliberately independent of the host — it does not
+rely on Netlify's build-time form detection, which never sees a form that React
+renders on the client.
+
+It needs one environment variable, `NEXT_PUBLIC_WEB3FORMS_KEY` (see
+`.env.example`). Set it in Netlify under **Site configuration → Environment
+variables**, then redeploy — `NEXT_PUBLIC_*` values are baked in at build time,
+so changing it does not take effect until the next build.
+
+Without the key the form fails into its error state, which tells people to
+email `info@seco.bio` directly. It never reports a success it didn't get.
 
 ## Known placeholders
 
